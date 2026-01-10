@@ -1,0 +1,29 @@
+# Java
+*.class
+*.jar
+*.war
+*.ear
+
+# build directories
+out/
+bin/
+target/
+
+# Eclipse
+.project
+.classpath
+.settings/
+
+# IntelliJ
+*.iml
+.idea/
+
+# macOS
+.DS_Store
+
+# logs
+*.log
+
+# test reports
+coverage/
+reports/

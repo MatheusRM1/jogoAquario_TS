@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="jogoAquario">
+    <baduino>C:\Users\mathe\Documents\jogoAquario\.baduino</baduino>
+    <classes>
+        <class>jogoAquario.Aquario</class>
+        <class>jogoAquario.AquarioTest</class>
+        <class>jogoAquario.Main</class>
+        <class>jogoAquario.Peixe</class>
+        <class>jogoAquario.PeixeA</class>
+        <class>jogoAquario.PeixeB</class>
+        <class>jogoAquario.Posicao</class>
+        <class>jogoAquario.Utils</class>
+    </classes>
+    <classes-path>C:\Users\mathe\Documents\jogoAquario\bin</classes-path>
+    <coverage-bin>C:\Users\mathe\Documents\jogoAquario\.baduino\coverage.ser</coverage-bin>
+    <coverage-xml>C:\Users\mathe\Documents\jogoAquario\.baduino\coverage.xml</coverage-xml>
+    <location>C:\Users\mathe\Documents\jogoAquario</location>
+    <path>C:\Users\mathe\Documents\jogoAquario\.baduino\jogoAquario.xml</path>
+</model>
