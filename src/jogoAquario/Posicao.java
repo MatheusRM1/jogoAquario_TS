@@ -20,6 +20,9 @@ public class Posicao {
         return coluna;
     }
     
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
         if (obj == null || getClass() != obj.getClass()) return false;
         Posicao posicao = (Posicao) obj;
         return linha == posicao.linha && coluna == posicao.coluna;
