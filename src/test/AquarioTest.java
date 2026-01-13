@@ -1,5 +1,8 @@
-package jogoAquario;
+package test;
 import org.junit.Test;
+
+import jogoAquario.Aquario;
+
 import org.junit.Before;
 import static org.junit.Assert.*;
 
