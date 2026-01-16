@@ -3,13 +3,15 @@
     <baduino>C:\Users\mathe\Documents\jogoAquario\.baduino</baduino>
     <classes>
         <class>jogoAquario.Aquario</class>
-        <class>jogoAquario.AquarioTest</class>
         <class>jogoAquario.Main</class>
         <class>jogoAquario.Peixe</class>
         <class>jogoAquario.PeixeA</class>
         <class>jogoAquario.PeixeB</class>
         <class>jogoAquario.Posicao</class>
         <class>jogoAquario.Utils</class>
+        <class>test.AquarioTest</class>
+        <class>test.AquarioTestEstrutural</class>
+        <class>test.UtilsAndPosicaoTest</class>
     </classes>
     <classes-path>C:\Users\mathe\Documents\jogoAquario\bin</classes-path>
     <coverage-bin>C:\Users\mathe\Documents\jogoAquario\.baduino\coverage.ser</coverage-bin>

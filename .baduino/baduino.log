@@ -1,0 +1,16 @@
+[INFO ] 16-01-2026 17:24:45 TestsRunner:62 - Executed 35 tests in 14 miliseconds. 1 tests failed.
+[INFO ] 16-01-2026 17:24:45 TestsRunner:71 - testCT12_ExecutarIteracaoComJogoTerminado(test.AquarioTest): Itera��es n�o devem mudar ap�s jogo terminado (ou comportamento definido) expected:<0> but was:<1>
+[INFO ] 16-01-2026 17:37:34 TestsRunner:62 - Executed 47 tests in 27 miliseconds. 0 tests failed.
+[INFO ] 16-01-2026 17:37:34 TestsRunner:65 - All tests passed.
+[INFO ] 16-01-2026 17:38:57 TestsRunner:62 - Executed 47 tests in 22 miliseconds. 0 tests failed.
+[INFO ] 16-01-2026 17:38:57 TestsRunner:65 - All tests passed.
+[INFO ] 16-01-2026 17:44:14 TestsRunner:62 - Executed 66 tests in 31 miliseconds. 0 tests failed.
+[INFO ] 16-01-2026 17:44:14 TestsRunner:65 - All tests passed.
+[INFO ] 16-01-2026 17:58:30 TestsRunner:62 - Executed 100 tests in 75 miliseconds. 0 tests failed.
+[INFO ] 16-01-2026 17:58:30 TestsRunner:65 - All tests passed.
+[INFO ] 16-01-2026 18:08:56 TestsRunner:62 - Executed 100 tests in 37 miliseconds. 0 tests failed.
+[INFO ] 16-01-2026 18:08:56 TestsRunner:65 - All tests passed.
+[INFO ] 16-01-2026 18:34:24 TestsRunner:62 - Executed 100 tests in 47 miliseconds. 0 tests failed.
+[INFO ] 16-01-2026 18:34:24 TestsRunner:65 - All tests passed.
+[INFO ] 16-01-2026 18:41:24 TestsRunner:62 - Executed 100 tests in 39 miliseconds. 0 tests failed.
+[INFO ] 16-01-2026 18:41:24 TestsRunner:65 - All tests passed.
