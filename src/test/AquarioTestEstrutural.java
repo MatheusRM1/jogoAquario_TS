@@ -94,7 +94,8 @@ public class AquarioTestEstrutural {
             }
 
             int peixesB_final = aquario.contarPeixesB();
-            assertTrue("PeixeB deve morrer de fome sem PeixeA (MB=2)", peixesB_final < peixesB_inicial || peixesB_final == 0);
+            assertTrue("PeixeB deve morrer de fome sem PeixeA (MB=2)",
+                    peixesB_final < peixesB_inicial || peixesB_final == 0);
         } catch (Exception e) {
             fail("Nao deveria lancar excecao no teste de morte B por fome: " + e.getMessage());
         }
@@ -109,8 +110,7 @@ public class AquarioTestEstrutural {
             for (int i = 0; i < 10; i++) {
                 aquario.executarIteracao();
             }
-
-            assertEquals("Deve ter executado 10 iteracoes", 10, aquario.getIteracoes());
+            assertEquals(10, aquario.getIteracoes());
             assertTrue("Sistema deve ter executado as iteracoes", aquario.getIteracoes() > 0);
         } catch (Exception e) {
             fail("Nao deveria lancar excecao em multiplas iteracoes: " + e.getMessage());
@@ -179,7 +179,7 @@ public class AquarioTestEstrutural {
             }
 
             assertTrue("Simulacao deve terminar corretamente",
-                      aquario.jogoTerminou() || iteracao >= maxIteracoes);
+                    aquario.jogoTerminou() || iteracao >= maxIteracoes);
             assertTrue("Deve ter executado pelo menos 1 iteracao", aquario.getIteracoes() > 0);
         } catch (Exception e) {
             fail("Nao deveria lancar excecao na simulacao completa: " + e.getMessage());
@@ -197,7 +197,7 @@ public class AquarioTestEstrutural {
             }
 
             assertTrue("Contador de movimentos deve ser usado para reproducao",
-                      aquario.contarPeixesA() >= 3);
+                    aquario.contarPeixesA() >= 3);
         } catch (Exception e) {
             fail("Erro no teste de fluxo de dados: " + e.getMessage());
         }
@@ -233,7 +233,7 @@ public class AquarioTestEstrutural {
 
             int peixesB_final = aquario.contarPeixesB();
             assertTrue("Contador de comidos deve permitir reproducao de PeixeB",
-                      peixesB_final >= peixesB_inicial);
+                    peixesB_final >= peixesB_inicial);
         } catch (Exception e) {
             fail("Erro no teste de fluxo contador comidos: " + e.getMessage());
         }
@@ -280,7 +280,7 @@ public class AquarioTestEstrutural {
             aquario.executarIteracao();
 
             assertTrue("Peixes A nao devem reproduzir imediatamente com RA alto",
-                      aquario.contarPeixesA() <= peixesInicial + 1);
+                    aquario.contarPeixesA() <= peixesInicial + 1);
         } catch (Exception e) {
             fail("Erro no teste de movimento sem reproducao: " + e.getMessage());
         }
@@ -296,7 +296,7 @@ public class AquarioTestEstrutural {
             aquario.executarIteracao();
 
             assertTrue("PeixeB deve se mover para celulas livres",
-                      aquario.contarPeixesB() > 0);
+                    aquario.contarPeixesB() > 0);
         } catch (Exception e) {
             fail("Erro no teste de movimento de PeixeB: " + e.getMessage());
         }
@@ -342,7 +342,7 @@ public class AquarioTestEstrutural {
             aquario.executarIteracao();
 
             assertTrue("Flag de movimento deve ser resetada a cada iteracao",
-                      aquario.getIteracoes() == 2);
+                    aquario.getIteracoes() == 2);
         } catch (Exception e) {
             fail("Erro no teste de reset de movimento: " + e.getMessage());
         }
@@ -354,13 +354,13 @@ public class AquarioTestEstrutural {
             // Testa metodo getPontuacao()
             Aquario aquario = new Aquario(5, 5);
             aquario.inicializar(8, 3, 2, 3, 2, 3);
-            
+
             for (int i = 0; i < 5; i++) {
                 aquario.executarIteracao();
             }
-            
-            assertEquals("Pontuacao deve ser igual ao numero de iteracoes", 
-                        5, aquario.getPontuacao());
+
+            assertEquals("Pontuacao deve ser igual ao numero de iteracoes",
+                    5, aquario.getPontuacao());
         } catch (Exception e) {
             fail("Erro no teste de pontuacao: " + e.getMessage());
         }
@@ -372,9 +372,9 @@ public class AquarioTestEstrutural {
             // Testa getCelulasLivresAoRedor quando nao ha celulas livres
             Aquario aquario = new Aquario(2, 2);
             aquario.inicializar(4, 0, 2, 1, 1, 1); // Matriz cheia
-            
+
             aquario.executarIteracao();
-            
+
             // Peixes nao devem conseguir se mover/reproduzir sem espaco
             assertTrue("Deve lidar corretamente com ausencia de celulas livres", true);
         } catch (Exception e) {

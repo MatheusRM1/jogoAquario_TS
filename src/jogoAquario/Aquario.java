@@ -22,6 +22,9 @@ public class Aquario {
     }
 
     public void inicializar(int quantidadeA, int quantidadeB, int ra, int ma, int rb, int mb) {
+        // Limpa o estado anterior ao reinicializar
+        this.peixes.clear();
+        this.iteracoes = 0;
         if (quantidadeA < 0) {
             throw new IllegalArgumentException("Quantidade de peixes A deve ser maior ou igual a zero");
         }
@@ -61,41 +64,55 @@ public class Aquario {
         for (int i = 0; i < quantidadeB && !posicoesDisponiveis.isEmpty(); i++) {
             int index = random.nextInt(posicoesDisponiveis.size());
             Posicao pos = posicoesDisponiveis.remove(index);
-            peixes.add(new PeixeB(pos, rb, mb));
+            PeixeB pb = new PeixeB(pos, rb, mb);
+            // Garante que contadorSemComer está zerado ao reinicializar
+            try {
+                java.lang.reflect.Field f = pb.getClass().getDeclaredField("contadorSemComer");
+                f.setAccessible(true);
+                f.setInt(pb, 0);
+            } catch (Exception e) {
+            }
+            peixes.add(pb);
         }
     }
 
     public void executarIteracao() {
+        if (peixes.isEmpty() || peixes.stream().noneMatch(Peixe::isVivo)) {
+            iteracoes++;
+            return;
+        }
         for (Peixe peixe : peixes) {
             peixe.resetarMovimentoIteracao();
         }
-
         List<Peixe> peixesParaAgir = new ArrayList<>(peixes);
-
         for (Peixe peixe : peixesParaAgir) {
             if (peixe.isVivo()) {
                 peixe.agir(this);
             }
         }
-
         peixes.removeIf(p -> !p.isVivo());
-
         iteracoes++;
     }
 
     public boolean jogoTerminou() {
+        boolean temPeixeB = false;
+        boolean temPeixeA = false;
         for (Peixe peixe : peixes) {
             if (peixe instanceof PeixeB && peixe.isVivo()) {
-                return false;
+                temPeixeB = true;
+            }
+            if (peixe instanceof PeixeA && peixe.isVivo()) {
+                temPeixeA = true;
             }
         }
-        return true;
+        // O jogo termina se não há peixes B ou não há peixes A
+        return !(temPeixeB && temPeixeA);
     }
 
     public List<Posicao> getCelulasLivresAoRedor(Posicao pos) {
         List<Posicao> celulasLivres = new ArrayList<>();
-        int[] dx = {-1, -1, -1, 0, 0, 1, 1, 1};
-        int[] dy = {-1, 0, 1, -1, 1, -1, 0, 1};
+        int[] dx = { -1, -1, -1, 0, 0, 1, 1, 1 };
+        int[] dy = { -1, 0, 1, -1, 1, -1, 0, 1 };
 
         for (int i = 0; i < 8; i++) {
             int novaLinha = pos.getLinha() + dx[i];
@@ -114,8 +131,8 @@ public class Aquario {
 
     public List<PeixeA> getPeixesAAoRedor(Posicao pos) {
         List<PeixeA> peixesA = new ArrayList<>();
-        int[] dx = {-1, -1, -1, 0, 0, 1, 1, 1};
-        int[] dy = {-1, 0, 1, -1, 1, -1, 0, 1};
+        int[] dx = { -1, -1, -1, 0, 0, 1, 1, 1 };
+        int[] dy = { -1, 0, 1, -1, 1, -1, 0, 1 };
 
         for (int i = 0; i < 8; i++) {
             int novaLinha = pos.getLinha() + dx[i];
@@ -136,8 +153,8 @@ public class Aquario {
 
     public List<PeixeB> getPeixesBProximos(Posicao pos) {
         List<PeixeB> peixesB = new ArrayList<>();
-        int[] dx = {-1, -1, -1, 0, 0, 1, 1, 1};
-        int[] dy = {-1, 0, 1, -1, 1, -1, 0, 1};
+        int[] dx = { -1, -1, -1, 0, 0, 1, 1, 1 };
+        int[] dy = { -1, 0, 1, -1, 1, -1, 0, 1 };
 
         for (int i = 0; i < 8; i++) {
             int novaLinha = pos.getLinha() + dx[i];
@@ -174,10 +191,19 @@ public class Aquario {
     }
 
     public void moverPeixe(Peixe peixe, Posicao novaPosicao) {
+        if (peixe == null || novaPosicao == null) {
+            throw new IllegalArgumentException("Peixe e novaPosicao não podem ser nulos");
+        }
+        if (!posicaoValida(novaPosicao.getLinha(), novaPosicao.getColuna())) {
+            throw new IllegalArgumentException("Posição inválida para mover o peixe");
+        }
         peixe.setPosicao(novaPosicao);
     }
 
     public void adicionarPeixe(Peixe peixe) {
+        if (peixe == null) {
+            throw new IllegalArgumentException("Peixe não pode ser nulo");
+        }
         peixes.add(peixe);
     }
 
