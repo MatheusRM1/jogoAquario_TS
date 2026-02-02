@@ -33,7 +33,7 @@ import static org.junit.Assert.*;
 public class AquarioTestMutacaoAvancado {
 
     // ========================================================================
-    // UTILITÁRIOS PARA ACESSO A CAMPOS PRIVADOS VIA REFLEXÃO
+    // UTILITARIOS PARA ACESSO A CAMPOS PRIVADOS VIA REFLEXAO
     // ========================================================================
 
     private int getContadorMovimentos(Peixe peixe) throws Exception {
@@ -96,6 +96,7 @@ public class AquarioTestMutacaoAvancado {
         f.setBoolean(peixe, valor);
     }
 
+    @SuppressWarnings("unchecked")
     private List<Peixe> getPeixes(Aquario aquario) throws Exception {
         Field f = Aquario.class.getDeclaredField("peixes");
         f.setAccessible(true);
@@ -591,7 +592,7 @@ public class AquarioTestMutacaoAvancado {
     }
 
     // ========================================================================
-    // TESTES PARA MathMutator - OPERADORES MATEMÁTICOS
+    // TESTES PARA MathMutator - OPERADORES MATEMATICOS
     // ========================================================================
 
     @Test
